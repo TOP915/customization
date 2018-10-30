@@ -896,8 +896,8 @@
 	
 	<profiles>
 		<!-- 初始化数据库 -->			
-		<profile>
-			<id>init-db-o</id>
+		<!--<profile>
+			<id>init-db</id>
 			<dependencies>
 				<dependency>
 					<groupId>org.dbunit</groupId>
@@ -919,14 +919,14 @@
 						<configuration>
 							<target>
 								
-								<!-- mysql -->
+								&lt;!&ndash; mysql &ndash;&gt;
 								<property name="dbunit.datatype" value="org.dbunit.ext.mysql.MySqlDataTypeFactory" />
 								
-								<!-- mssql
-								<property name="dbunit.datatype" value="org.dbunit.ext.mssql.MsSqlDataTypeFactory" /> -->
+								&lt;!&ndash; mssql
+								<property name="dbunit.datatype" value="org.dbunit.ext.mssql.MsSqlDataTypeFactory" /> &ndash;&gt;
 								
-								<!-- oracle
-								<property name="dbunit.datatype" value="org.dbunit.ext.oracle.Oracle10DataTypeFactory" /> -->
+								&lt;!&ndash; oracle
+								<property name="dbunit.datatype" value="org.dbunit.ext.oracle.Oracle10DataTypeFactory" /> &ndash;&gt;
 								
 								<property file="src/main/resources/jeesite.properties" />
 								<sql driver="${jdbc.driver}" url="${jdbc.url}" userid="${jdbc.username}" password="${jdbc.password}" 
@@ -948,13 +948,13 @@
 								
 								<taskdef name="dbunit" classname="org.dbunit.ant.DbUnitTask" classpathref="maven.test.classpath" />
 								
-								<!-- mysql、mssql -->
+								&lt;!&ndash; mysql、mssql &ndash;&gt;
 								<dbunit driver="${jdbc.driver}" url="${jdbc.url}" userid="${jdbc.username}"
 									 password="${jdbc.password}">
 								
-								<!-- oracle
+								&lt;!&ndash; oracle
 								<dbunit driver="${jdbc.driver}" url="${jdbc.url}" userid="${jdbc.username}"
-									password="${jdbc.password}" schema="${jdbc.username}" > -->
+									password="${jdbc.password}" schema="${jdbc.username}" > &ndash;&gt;
 									
 									<dbconfig>
 										<property name="datatypeFactory" value="${dbunit.datatype}" />
@@ -970,7 +970,7 @@
 					</plugin>
 				</plugins>
 			</build>
-		</profile>
+		</profile>-->
 	</profiles>
 	
 	<!-- 开发者信息 -->
