@@ -107,7 +107,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">正文:1</label>
+			<label class="control-label">正文:</label>
 			<div class="controls">
 				<form:textarea id="content" htmlEscape="true" path="articleData.content" rows="4" maxlength="200" class="input-xxlarge"/>
 				<sys:ckeditor replace="content" uploadPath="/cms/article" />
