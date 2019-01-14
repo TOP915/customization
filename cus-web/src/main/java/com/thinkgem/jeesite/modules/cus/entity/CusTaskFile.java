@@ -4,7 +4,7 @@
 package com.thinkgem.jeesite.modules.cus.entity;
 
 import org.hibernate.validator.constraints.Length;
-import javax.validation.constraints.NotNull(message="文件大小;
+import javax.validation.constraints.NotNull;
 
 import com.thinkgem.jeesite.common.persistence.DataEntity;
 
