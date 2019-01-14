@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.cus.dao.CusOrderDao">
+    
+	<sql id="cusOrderColumns">
+		a.order_id AS "orderId",
+		a.task_id AS "taskId",
+		a.writer_id AS "writerId",
+		a.writer_name AS "writerName",
+		a.order_price AS "orderPrice",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.schedule AS "schedule",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="cusOrderJoins">
+	</sql>
+    
+	<select id="get" resultType="CusOrder">
+		SELECT 
+			<include refid="cusOrderColumns"/>
+		FROM cus_order a
+		<include refid="cusOrderJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="CusOrder">
+		SELECT 
+			<include refid="cusOrderColumns"/>
+		FROM cus_order a
+		<include refid="cusOrderJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="CusOrder">
+		SELECT 
+			<include refid="cusOrderColumns"/>
+		FROM cus_order a
+		<include refid="cusOrderJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO cus_order(
+			order_id,
+			task_id,
+			writer_id,
+			writer_name,
+			order_price,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			schedule,
+			del_flag
+		) VALUES (
+			#{orderId},
+			#{taskId},
+			#{writerId},
+			#{writerName},
+			#{orderPrice},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{schedule},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE cus_order SET 	
+			order_id = #{orderId},
+			task_id = #{taskId},
+			writer_id = #{writerId},
+			writer_name = #{writerName},
+			order_price = #{orderPrice},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			schedule = #{schedule}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE cus_order SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

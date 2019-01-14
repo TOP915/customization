@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.cus.dao.CusTaskDao">
+    
+	<sql id="cusTaskColumns">
+		a.task_id AS "taskId",
+		a.owner_id AS "ownerId",
+		a.task_name AS "taskName",
+		a.owner_name AS "ownerName",
+		a.relevant_subject AS "relevantSubject",
+		a.site AS "site",
+		a.task_type AS "taskType",
+		a.detail_requirements AS "detailRequirements",
+		a.deadline AS "deadline",
+		a.writer_level AS "writerLevel",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.schedule AS "schedule",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="cusTaskJoins">
+	</sql>
+    
+	<select id="get" resultType="CusTask">
+		SELECT 
+			<include refid="cusTaskColumns"/>
+		FROM cus_task a
+		<include refid="cusTaskJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="CusTask">
+		SELECT 
+			<include refid="cusTaskColumns"/>
+		FROM cus_task a
+		<include refid="cusTaskJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="CusTask">
+		SELECT 
+			<include refid="cusTaskColumns"/>
+		FROM cus_task a
+		<include refid="cusTaskJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO cus_task(
+			task_id,
+			owner_id,
+			task_name,
+			owner_name,
+			relevant_subject,
+			site,
+			task_type,
+			detail_requirements,
+			deadline,
+			writer_level,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			schedule,
+			del_flag
+		) VALUES (
+			#{taskId},
+			#{ownerId},
+			#{taskName},
+			#{ownerName},
+			#{relevantSubject},
+			#{site},
+			#{taskType},
+			#{detailRequirements},
+			#{deadline},
+			#{writerLevel},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{schedule},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE cus_task SET 	
+			task_id = #{taskId},
+			owner_id = #{ownerId},
+			task_name = #{taskName},
+			owner_name = #{ownerName},
+			relevant_subject = #{relevantSubject},
+			site = #{site},
+			task_type = #{taskType},
+			detail_requirements = #{detailRequirements},
+			deadline = #{deadline},
+			writer_level = #{writerLevel},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			schedule = #{schedule}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE cus_task SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

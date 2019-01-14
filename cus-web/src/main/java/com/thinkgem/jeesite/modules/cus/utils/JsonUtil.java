@@ -1,4 +1,4 @@
-package cus.utils;
+package com.thinkgem.jeesite.modules.cus.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;

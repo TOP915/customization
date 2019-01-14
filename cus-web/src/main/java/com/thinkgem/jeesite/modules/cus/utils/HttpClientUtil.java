@@ -1,4 +1,4 @@
-package cus.utils;
+package com.thinkgem.jeesite.modules.cus.utils;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;

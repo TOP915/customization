@@ -1,5 +1,6 @@
-package cus.utils;
+package com.thinkgem.jeesite.modules.cus.utils;
 
+import cus.utils.JsonUtil;
 import org.apache.log4j.Logger;
 
 import java.io.*;

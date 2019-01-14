@@ -1,4 +1,4 @@
-package cus.utils;
+package com.thinkgem.jeesite.modules.cus.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

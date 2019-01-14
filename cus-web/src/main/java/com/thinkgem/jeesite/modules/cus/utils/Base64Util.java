@@ -1,4 +1,4 @@
-package cus.utils;
+package com.thinkgem.jeesite.modules.cus.utils;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
