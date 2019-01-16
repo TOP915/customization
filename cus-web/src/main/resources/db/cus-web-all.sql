@@ -1056,6 +1056,7 @@ create table cus_user
   id                   varchar(64) not null comment '用户id',
   login_name           varchar(128) not null comment '登录账号',
   user_name            varchar(128) comment '用户姓名',
+  password             varchar(128) not null comment '用户密码',
   user_email           varchar(64) comment '邮箱',
   user_phone           varchar(64) not null comment '电话',
   user_wechat          varchar(64) comment '用户微信',
@@ -1071,7 +1072,6 @@ create table cus_user
   del_flag             char(1) not null default '0' comment '删除标记',
   primary key (id)
 );
-
 alter table cus_user comment '用户信息表';
 
 /*==============================================================*/

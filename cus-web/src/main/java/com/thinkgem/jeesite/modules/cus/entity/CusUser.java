@@ -19,6 +19,8 @@ public class CusUser extends DataEntity<CusUser> {
 	private static final long serialVersionUID = 1L;
 	private String loginName;		// 登录账号
 	private String userName;		// 用户姓名
+
+	private String password;		// 用户密码
 	private String userEmail;		// 邮箱
 	private String userPhone;		// 电话
 	private String userWechat;		// 用户微信
@@ -53,7 +55,12 @@ public class CusUser extends DataEntity<CusUser> {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	
+
+	@Length(min=1, max=128, message="用户密码长度必须介于 1 和 128 之间")
+	public String getPassword() { return password; }
+
+	public void setPassword(String password) { this.password = password; }
+
 	@Length(min=0, max=64, message="邮箱长度必须介于 0 和 64 之间")
 	public String getUserEmail() {
 		return userEmail;
