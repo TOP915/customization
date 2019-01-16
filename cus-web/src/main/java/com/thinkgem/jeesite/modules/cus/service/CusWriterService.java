@@ -14,9 +14,9 @@ import com.thinkgem.jeesite.modules.cus.entity.CusWriter;
 import com.thinkgem.jeesite.modules.cus.dao.CusWriterDao;
 
 /**
- * 写手Service
+ * 写手模块Service
  * @author dengyn
- * @version 2019-01-14
+ * @version 2019-01-16
  */
 @Service
 @Transactional(readOnly = true)

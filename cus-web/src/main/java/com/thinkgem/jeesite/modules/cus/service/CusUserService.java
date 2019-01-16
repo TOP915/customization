@@ -14,9 +14,9 @@ import com.thinkgem.jeesite.modules.cus.entity.CusUser;
 import com.thinkgem.jeesite.modules.cus.dao.CusUserDao;
 
 /**
- * cus用户登录Service
+ * 用户模块Service
  * @author dengyn
- * @version 2019-01-14
+ * @version 2019-01-16
  */
 @Service
 @Transactional(readOnly = true)

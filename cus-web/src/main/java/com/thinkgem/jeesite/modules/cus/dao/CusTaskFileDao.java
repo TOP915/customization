@@ -8,9 +8,9 @@ import com.thinkgem.jeesite.common.persistence.annotation.MyBatisDao;
 import com.thinkgem.jeesite.modules.cus.entity.CusTaskFile;
 
 /**
- * 任务文件模块DAO接口
+ * 任务文件DAO接口
  * @author dengyn
- * @version 2019-01-14
+ * @version 2019-01-16
  */
 @MyBatisDao
 public interface CusTaskFileDao extends CrudDao<CusTaskFile> {

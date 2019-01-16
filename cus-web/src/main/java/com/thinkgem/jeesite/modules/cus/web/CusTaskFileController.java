@@ -23,9 +23,9 @@ import com.thinkgem.jeesite.modules.cus.entity.CusTaskFile;
 import com.thinkgem.jeesite.modules.cus.service.CusTaskFileService;
 
 /**
- * 任务文件模块Controller
+ * 任务文件Controller
  * @author dengyn
- * @version 2019-01-14
+ * @version 2019-01-16
  */
 @Controller
 @RequestMapping(value = "${adminPath}/cus/cusTaskFile")

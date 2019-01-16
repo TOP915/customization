@@ -9,14 +9,13 @@ import javax.validation.constraints.NotNull;
 import com.thinkgem.jeesite.common.persistence.DataEntity;
 
 /**
- * 任务文件模块Entity
+ * 任务文件Entity
  * @author dengyn
- * @version 2019-01-14
+ * @version 2019-01-16
  */
 public class CusTaskFile extends DataEntity<CusTaskFile> {
 	
 	private static final long serialVersionUID = 1L;
-	private String fileId;		// 文件id
 	private String fileOname;		// 原文件名称
 	private String fileName;		// 文件名称
 	private Long fileSize;		// 文件大小(B)
@@ -33,15 +32,6 @@ public class CusTaskFile extends DataEntity<CusTaskFile> {
 		super(id);
 	}
 
-	@Length(min=1, max=64, message="文件id长度必须介于 1 和 64 之间")
-	public String getFileId() {
-		return fileId;
-	}
-
-	public void setFileId(String fileId) {
-		this.fileId = fileId;
-	}
-	
 	@Length(min=1, max=128, message="原文件名称长度必须介于 1 和 128 之间")
 	public String getFileOname() {
 		return fileOname;

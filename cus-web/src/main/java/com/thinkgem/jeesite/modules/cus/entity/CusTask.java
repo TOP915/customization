@@ -10,16 +10,15 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.thinkgem.jeesite.common.persistence.DataEntity;
 
 /**
- * 任务模块Entity
+ * 任务Entity
  * @author dengyn
- * @version 2019-01-14
+ * @version 2019-01-16
  */
 public class CusTask extends DataEntity<CusTask> {
 	
 	private static final long serialVersionUID = 1L;
-	private String taskId;		// task_id
-	private String ownerId;		// 归属人id
 	private String taskName;		// 任务简称
+	private String ownerId;		// 归属人id
 	private String ownerName;		// 归属人名称
 	private String relevantSubject;		// 学科
 	private String site;		// 地点、位置
@@ -37,13 +36,13 @@ public class CusTask extends DataEntity<CusTask> {
 		super(id);
 	}
 
-	@Length(min=1, max=64, message="task_id长度必须介于 1 和 64 之间")
-	public String getTaskId() {
-		return taskId;
+	@Length(min=0, max=128, message="任务简称长度必须介于 0 和 128 之间")
+	public String getTaskName() {
+		return taskName;
 	}
 
-	public void setTaskId(String taskId) {
-		this.taskId = taskId;
+	public void setTaskName(String taskName) {
+		this.taskName = taskName;
 	}
 	
 	@Length(min=1, max=64, message="归属人id长度必须介于 1 和 64 之间")
@@ -53,15 +52,6 @@ public class CusTask extends DataEntity<CusTask> {
 
 	public void setOwnerId(String ownerId) {
 		this.ownerId = ownerId;
-	}
-	
-	@Length(min=0, max=128, message="任务简称长度必须介于 0 和 128 之间")
-	public String getTaskName() {
-		return taskName;
-	}
-
-	public void setTaskName(String taskName) {
-		this.taskName = taskName;
 	}
 	
 	@Length(min=1, max=128, message="归属人名称长度必须介于 1 和 128 之间")

@@ -3,8 +3,6 @@
  */
 package com.thinkgem.jeesite.modules.cus.entity;
 
-import com.thinkgem.jeesite.modules.sys.entity.User;
-import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -12,14 +10,13 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.thinkgem.jeesite.common.persistence.DataEntity;
 
 /**
- * cus用户登录Entity
+ * 用户模块Entity
  * @author dengyn
- * @version 2019-01-14
+ * @version 2019-01-16
  */
 public class CusUser extends DataEntity<CusUser> {
 	
 	private static final long serialVersionUID = 1L;
-	private User user;		// 用户id
 	private String loginName;		// 登录账号
 	private String userName;		// 用户姓名
 	private String userEmail;		// 邮箱
@@ -39,15 +36,6 @@ public class CusUser extends DataEntity<CusUser> {
 		super(id);
 	}
 
-	@NotNull(message="用户id不能为空")
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-	
 	@Length(min=1, max=128, message="登录账号长度必须介于 1 和 128 之间")
 	public String getLoginName() {
 		return loginName;

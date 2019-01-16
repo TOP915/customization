@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/views/include/taglib.jsp"%>
 <html>
 <head>
-	<title>订单管理</title>
+	<title>订单信息管理</title>
 	<meta name="decorator" content="default"/>
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -18,8 +18,8 @@
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li class="active"><a href="${ctx}/cus/cusOrder/">订单列表</a></li>
-		<shiro:hasPermission name="cus:cusOrder:edit"><li><a href="${ctx}/cus/cusOrder/form">订单添加</a></li></shiro:hasPermission>
+		<li class="active"><a href="${ctx}/cus/cusOrder/">订单信息列表</a></li>
+		<shiro:hasPermission name="cus:cusOrder:edit"><li><a href="${ctx}/cus/cusOrder/form">订单信息添加</a></li></shiro:hasPermission>
 	</ul>
 	<form:form id="searchForm" modelAttribute="cusOrder" action="${ctx}/cus/cusOrder/" method="post" class="breadcrumb form-search">
 		<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
@@ -45,7 +45,7 @@
 				</a></td>
 				<shiro:hasPermission name="cus:cusOrder:edit"><td>
     				<a href="${ctx}/cus/cusOrder/form?id=${cusOrder.id}">修改</a>
-					<a href="${ctx}/cus/cusOrder/delete?id=${cusOrder.id}" onclick="return confirmx('确认要删除该订单吗？', this.href)">删除</a>
+					<a href="${ctx}/cus/cusOrder/delete?id=${cusOrder.id}" onclick="return confirmx('确认要删除该订单信息吗？', this.href)">删除</a>
 				</td></shiro:hasPermission>
 			</tr>
 		</c:forEach>

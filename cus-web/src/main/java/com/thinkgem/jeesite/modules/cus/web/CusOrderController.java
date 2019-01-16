@@ -23,9 +23,9 @@ import com.thinkgem.jeesite.modules.cus.entity.CusOrder;
 import com.thinkgem.jeesite.modules.cus.service.CusOrderService;
 
 /**
- * 订单Controller
+ * 订单模块Controller
  * @author dengyn
- * @version 2019-01-14
+ * @version 2019-01-16
  */
 @Controller
 @RequestMapping(value = "${adminPath}/cus/cusOrder")
@@ -68,7 +68,7 @@ public class CusOrderController extends BaseController {
 			return form(cusOrder, model);
 		}
 		cusOrderService.save(cusOrder);
-		addMessage(redirectAttributes, "保存订单成功");
+		addMessage(redirectAttributes, "保存订单信息成功");
 		return "redirect:"+Global.getAdminPath()+"/cus/cusOrder/?repage";
 	}
 	
@@ -76,7 +76,7 @@ public class CusOrderController extends BaseController {
 	@RequestMapping(value = "delete")
 	public String delete(CusOrder cusOrder, RedirectAttributes redirectAttributes) {
 		cusOrderService.delete(cusOrder);
-		addMessage(redirectAttributes, "删除订单成功");
+		addMessage(redirectAttributes, "删除订单信息成功");
 		return "redirect:"+Global.getAdminPath()+"/cus/cusOrder/?repage";
 	}
 

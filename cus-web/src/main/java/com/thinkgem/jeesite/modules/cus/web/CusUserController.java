@@ -23,9 +23,9 @@ import com.thinkgem.jeesite.modules.cus.entity.CusUser;
 import com.thinkgem.jeesite.modules.cus.service.CusUserService;
 
 /**
- * cus用户登录Controller
+ * 用户模块Controller
  * @author dengyn
- * @version 2019-01-14
+ * @version 2019-01-16
  */
 @Controller
 @RequestMapping(value = "${adminPath}/cus/cusUser")
@@ -68,7 +68,7 @@ public class CusUserController extends BaseController {
 			return form(cusUser, model);
 		}
 		cusUserService.save(cusUser);
-		addMessage(redirectAttributes, "保存用户信息成功");
+		addMessage(redirectAttributes, "保存用户成功");
 		return "redirect:"+Global.getAdminPath()+"/cus/cusUser/?repage";
 	}
 	
@@ -76,7 +76,7 @@ public class CusUserController extends BaseController {
 	@RequestMapping(value = "delete")
 	public String delete(CusUser cusUser, RedirectAttributes redirectAttributes) {
 		cusUserService.delete(cusUser);
-		addMessage(redirectAttributes, "删除用户信息成功");
+		addMessage(redirectAttributes, "删除用户成功");
 		return "redirect:"+Global.getAdminPath()+"/cus/cusUser/?repage";
 	}
 

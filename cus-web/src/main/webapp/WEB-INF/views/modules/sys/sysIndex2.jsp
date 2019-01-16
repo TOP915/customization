@@ -215,8 +215,8 @@
 					<iframe id="mainFrame" name="mainFrame" src="" style="overflow:visible;" scrolling="yes" frameborder="no" width="100%" height="650"></iframe>
 				</div>
 			</div>
-		    <div id="footer" class="row-fluid">
-	            Copyright &copy; 2012-${fns:getConfig('copyrightYear')} ${fns:getConfig('productName')}<!--  - Powered By <a href="https://github.com/thinkgem/jeesite" target="_blank">JeeSite</a> ${fns:getConfig('version')} -->
+		    <div id="footer" class="row-fluid"><%--dengyn--%>
+	            ${fns:getConfig('productName')}
 			</div>
 		</div>
 	</div>

@@ -23,9 +23,9 @@ import com.thinkgem.jeesite.modules.cus.entity.CusWriter;
 import com.thinkgem.jeesite.modules.cus.service.CusWriterService;
 
 /**
- * 写手Controller
+ * 写手模块Controller
  * @author dengyn
- * @version 2019-01-14
+ * @version 2019-01-16
  */
 @Controller
 @RequestMapping(value = "${adminPath}/cus/cusWriter")
@@ -68,7 +68,7 @@ public class CusWriterController extends BaseController {
 			return form(cusWriter, model);
 		}
 		cusWriterService.save(cusWriter);
-		addMessage(redirectAttributes, "保存写手成功");
+		addMessage(redirectAttributes, "保存写手信息成功");
 		return "redirect:"+Global.getAdminPath()+"/cus/cusWriter/?repage";
 	}
 	
@@ -76,7 +76,7 @@ public class CusWriterController extends BaseController {
 	@RequestMapping(value = "delete")
 	public String delete(CusWriter cusWriter, RedirectAttributes redirectAttributes) {
 		cusWriterService.delete(cusWriter);
-		addMessage(redirectAttributes, "删除写手成功");
+		addMessage(redirectAttributes, "删除写手信息成功");
 		return "redirect:"+Global.getAdminPath()+"/cus/cusWriter/?repage";
 	}
 

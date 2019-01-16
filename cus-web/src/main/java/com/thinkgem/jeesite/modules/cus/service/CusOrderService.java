@@ -14,9 +14,9 @@ import com.thinkgem.jeesite.modules.cus.entity.CusOrder;
 import com.thinkgem.jeesite.modules.cus.dao.CusOrderDao;
 
 /**
- * 订单Service
+ * 订单模块Service
  * @author dengyn
- * @version 2019-01-14
+ * @version 2019-01-16
  */
 @Service
 @Transactional(readOnly = true)

@@ -3,7 +3,7 @@
 <mapper namespace="com.thinkgem.jeesite.modules.cus.dao.CusTaskFileDao">
     
 	<sql id="cusTaskFileColumns">
-		a.file_id AS "fileId",
+		a.id AS "id",
 		a.file_oname AS "fileOname",
 		a.file_name AS "fileName",
 		a.file_size AS "fileSize",
@@ -67,7 +67,7 @@
 	
 	<insert id="insert">
 		INSERT INTO cus_task_file(
-			file_id,
+			id,
 			file_oname,
 			file_name,
 			file_size,
@@ -81,7 +81,7 @@
 			update_date,
 			del_flag
 		) VALUES (
-			#{fileId},
+			#{id},
 			#{fileOname},
 			#{fileName},
 			#{fileSize},
@@ -99,7 +99,6 @@
 	
 	<update id="update">
 		UPDATE cus_task_file SET 	
-			file_id = #{fileId},
 			file_oname = #{fileOname},
 			file_name = #{fileName},
 			file_size = #{fileSize},

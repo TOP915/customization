@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/views/include/taglib.jsp"%>
 <html>
 <head>
-	<title>写手管理</title>
+	<title>写手信息管理</title>
 	<meta name="decorator" content="default"/>
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -18,8 +18,8 @@
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li class="active"><a href="${ctx}/cus/cusWriter/">写手列表</a></li>
-		<shiro:hasPermission name="cus:cusWriter:edit"><li><a href="${ctx}/cus/cusWriter/form">写手添加</a></li></shiro:hasPermission>
+		<li class="active"><a href="${ctx}/cus/cusWriter/">写手信息列表</a></li>
+		<shiro:hasPermission name="cus:cusWriter:edit"><li><a href="${ctx}/cus/cusWriter/form">写手信息添加</a></li></shiro:hasPermission>
 	</ul>
 	<form:form id="searchForm" modelAttribute="cusWriter" action="${ctx}/cus/cusWriter/" method="post" class="breadcrumb form-search">
 		<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
@@ -45,7 +45,7 @@
 				</a></td>
 				<shiro:hasPermission name="cus:cusWriter:edit"><td>
     				<a href="${ctx}/cus/cusWriter/form?id=${cusWriter.id}">修改</a>
-					<a href="${ctx}/cus/cusWriter/delete?id=${cusWriter.id}" onclick="return confirmx('确认要删除该写手吗？', this.href)">删除</a>
+					<a href="${ctx}/cus/cusWriter/delete?id=${cusWriter.id}" onclick="return confirmx('确认要删除该写手信息吗？', this.href)">删除</a>
 				</td></shiro:hasPermission>
 			</tr>
 		</c:forEach>

@@ -8,14 +8,13 @@ import org.hibernate.validator.constraints.Length;
 import com.thinkgem.jeesite.common.persistence.DataEntity;
 
 /**
- * 订单Entity
+ * 订单模块Entity
  * @author dengyn
- * @version 2019-01-14
+ * @version 2019-01-16
  */
 public class CusOrder extends DataEntity<CusOrder> {
 	
 	private static final long serialVersionUID = 1L;
-	private String orderId;		// order_id
 	private String taskId;		// 任务id
 	private String writerId;		// 写手id
 	private String writerName;		// 写手姓名
@@ -30,15 +29,6 @@ public class CusOrder extends DataEntity<CusOrder> {
 		super(id);
 	}
 
-	@Length(min=1, max=64, message="order_id长度必须介于 1 和 64 之间")
-	public String getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(String orderId) {
-		this.orderId = orderId;
-	}
-	
 	@Length(min=1, max=64, message="任务id长度必须介于 1 和 64 之间")
 	public String getTaskId() {
 		return taskId;

@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/views/include/taglib.jsp"%>
 <html>
 <head>
-	<title>写手管理</title>
+	<title>写手信息管理</title>
 	<meta name="decorator" content="default"/>
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -27,19 +27,12 @@
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li><a href="${ctx}/cus/cusWriter/">写手列表</a></li>
-		<li class="active"><a href="${ctx}/cus/cusWriter/form?id=${cusWriter.id}">写手<shiro:hasPermission name="cus:cusWriter:edit">${not empty cusWriter.id?'修改':'添加'}</shiro:hasPermission><shiro:lacksPermission name="cus:cusWriter:edit">查看</shiro:lacksPermission></a></li>
+		<li><a href="${ctx}/cus/cusWriter/">写手信息列表</a></li>
+		<li class="active"><a href="${ctx}/cus/cusWriter/form?id=${cusWriter.id}">写手信息<shiro:hasPermission name="cus:cusWriter:edit">${not empty cusWriter.id?'修改':'添加'}</shiro:hasPermission><shiro:lacksPermission name="cus:cusWriter:edit">查看</shiro:lacksPermission></a></li>
 	</ul><br/>
 	<form:form id="inputForm" modelAttribute="cusWriter" action="${ctx}/cus/cusWriter/save" method="post" class="form-horizontal">
 		<form:hidden path="id"/>
 		<sys:message content="${message}"/>		
-		<div class="control-group">
-			<label class="control-label">写手id：</label>
-			<div class="controls">
-				<form:input path="writerId" htmlEscape="false" maxlength="64" class="input-xlarge required"/>
-				<span class="help-inline"><font color="red">*</font> </span>
-			</div>
-		</div>
 		<div class="control-group">
 			<label class="control-label">写手履历：</label>
 			<div class="controls">

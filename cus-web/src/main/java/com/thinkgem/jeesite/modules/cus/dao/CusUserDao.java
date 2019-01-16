@@ -8,9 +8,9 @@ import com.thinkgem.jeesite.common.persistence.annotation.MyBatisDao;
 import com.thinkgem.jeesite.modules.cus.entity.CusUser;
 
 /**
- * cus用户登录DAO接口
+ * 用户模块DAO接口
  * @author dengyn
- * @version 2019-01-14
+ * @version 2019-01-16
  */
 @MyBatisDao
 public interface CusUserDao extends CrudDao<CusUser> {

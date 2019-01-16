@@ -10,14 +10,13 @@ import javax.validation.constraints.NotNull;
 import com.thinkgem.jeesite.common.persistence.DataEntity;
 
 /**
- * 写手Entity
+ * 写手模块Entity
  * @author dengyn
- * @version 2019-01-14
+ * @version 2019-01-16
  */
 public class CusWriter extends DataEntity<CusWriter> {
 	
 	private static final long serialVersionUID = 1L;
-	private String writerId;		// 写手id
 	private String writerRecord;		// 写手履历
 	private User user;		// 用户id
 	
@@ -29,15 +28,6 @@ public class CusWriter extends DataEntity<CusWriter> {
 		super(id);
 	}
 
-	@Length(min=1, max=64, message="写手id长度必须介于 1 和 64 之间")
-	public String getWriterId() {
-		return writerId;
-	}
-
-	public void setWriterId(String writerId) {
-		this.writerId = writerId;
-	}
-	
 	@Length(min=1, max=64, message="写手履历长度必须介于 1 和 64 之间")
 	public String getWriterRecord() {
 		return writerRecord;

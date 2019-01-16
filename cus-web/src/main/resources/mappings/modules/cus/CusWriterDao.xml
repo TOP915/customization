@@ -3,7 +3,7 @@
 <mapper namespace="com.thinkgem.jeesite.modules.cus.dao.CusWriterDao">
     
 	<sql id="cusWriterColumns">
-		a.writer_id AS "writerId",
+		a.id AS "id",
 		a.writer_record AS "writerRecord",
 		a.user_id AS "user.id",
 		a.create_date AS "createDate",
@@ -63,7 +63,7 @@
 	
 	<insert id="insert">
 		INSERT INTO cus_writer(
-			writer_id,
+			id,
 			writer_record,
 			user_id,
 			create_date,
@@ -71,7 +71,7 @@
 			update_date,
 			del_flag
 		) VALUES (
-			#{writerId},
+			#{id},
 			#{writerRecord},
 			#{user.id},
 			#{createDate},
@@ -83,7 +83,6 @@
 	
 	<update id="update">
 		UPDATE cus_writer SET 	
-			writer_id = #{writerId},
 			writer_record = #{writerRecord},
 			user_id = #{user.id},
 			update_by = #{updateBy.id},

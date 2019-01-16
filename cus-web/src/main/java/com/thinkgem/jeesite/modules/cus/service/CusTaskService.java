@@ -14,9 +14,9 @@ import com.thinkgem.jeesite.modules.cus.entity.CusTask;
 import com.thinkgem.jeesite.modules.cus.dao.CusTaskDao;
 
 /**
- * 任务模块Service
+ * 任务Service
  * @author dengyn
- * @version 2019-01-14
+ * @version 2019-01-16
  */
 @Service
 @Transactional(readOnly = true)

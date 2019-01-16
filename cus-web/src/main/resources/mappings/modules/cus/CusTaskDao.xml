@@ -3,9 +3,9 @@
 <mapper namespace="com.thinkgem.jeesite.modules.cus.dao.CusTaskDao">
     
 	<sql id="cusTaskColumns">
-		a.task_id AS "taskId",
-		a.owner_id AS "ownerId",
+		a.id AS "id",
 		a.task_name AS "taskName",
+		a.owner_id AS "ownerId",
 		a.owner_name AS "ownerName",
 		a.relevant_subject AS "relevantSubject",
 		a.site AS "site",
@@ -70,9 +70,9 @@
 	
 	<insert id="insert">
 		INSERT INTO cus_task(
-			task_id,
-			owner_id,
+			id,
 			task_name,
+			owner_id,
 			owner_name,
 			relevant_subject,
 			site,
@@ -87,9 +87,9 @@
 			schedule,
 			del_flag
 		) VALUES (
-			#{taskId},
-			#{ownerId},
+			#{id},
 			#{taskName},
+			#{ownerId},
 			#{ownerName},
 			#{relevantSubject},
 			#{site},
@@ -108,9 +108,8 @@
 	
 	<update id="update">
 		UPDATE cus_task SET 	
-			task_id = #{taskId},
-			owner_id = #{ownerId},
 			task_name = #{taskName},
+			owner_id = #{ownerId},
 			owner_name = #{ownerName},
 			relevant_subject = #{relevantSubject},
 			site = #{site},
