@@ -26,7 +26,7 @@
 	</script>
 </head>
 <body>
-	<form:form id="inputForm" modelAttribute="cusUser" action="${ctx}/cus/cusUser/save" method="post" class="form-horizontal">
+	<form:form id="inputForm" modelAttribute="cusUser" action="${ctxF}/cus/cusUser/save" method="post" class="form-horizontal">
 		<form:hidden path="id"/>
 		<sys:message content="${message}"/>		
 		<div class="control-group">
