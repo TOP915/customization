@@ -30,7 +30,18 @@
 			<include refid="cusUserColumns"/>
 		FROM cus_user a
 		<include refid="cusUserJoins"/>
-		WHERE a.id = #{id}
+		<where>
+			AND  a.del_flag = '0'
+			<if test="id != null and id !=''">
+				AND  a.id = #{id}
+			</if>
+			<if test="userName != null and userName !=''">
+				AND a.login_name = #{loginName}
+			</if>
+			<if test="password != null and password !=''">
+				AND a.password = #{password}
+			</if>
+		</where>
 	</select>
 	
 	<select id="findList" resultType="CusUser">

@@ -209,4 +209,15 @@
 		<location>/WEB-INF/views/error/404.jsp</location>
 	</error-page>
 
+
+	<!--session过滤器-->
+	<filter>
+		<filter-name>SessionFilter</filter-name>
+		<filter-class>com.thinkgem.jeesite.modules.cus.filter.SessionFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SessionFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+
 </web-app>

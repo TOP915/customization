@@ -25,7 +25,11 @@ public class CusUserService extends CrudService<CusUserDao, CusUser> {
 	public CusUser get(String id) {
 		return super.get(id);
 	}
-	
+
+	public CusUser get(CusUser cusUser) {
+		return super.get(cusUser);
+	}
+
 	public List<CusUser> findList(CusUser cusUser) {
 		return super.findList(cusUser);
 	}
