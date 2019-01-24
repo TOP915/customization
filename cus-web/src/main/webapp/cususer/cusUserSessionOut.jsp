@@ -21,7 +21,7 @@
 <body style="background:#edf6fa;">
     <div class="error">
         <p>登录信息已过期，请重新登录！</p>
-    <div class="reindex"><a href="${ctPath}/login.jsp" target="_parent">重新登录</a></div>
+    <div class="reindex"><a href="${ctPath}/cususer/login.jsp" target="_parent">重新登录</a></div>
     </div>
 </body>
 </html>

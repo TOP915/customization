@@ -6,10 +6,8 @@
     <title>欢迎登录后台管理系统</title>
     <link href="${ctPath}/css/style.css" rel="stylesheet" type="text/css"/>
     <link href="${ctPath}/css/jquery-confirm.css" rel="stylesheet" type="text/css">
-    <script language="JavaScript" src="${ctPath}/js/jquery.js"></script>
-    <script language="JavaScript" src="${ctPath}/js/jquery.base64.js"></script>
-    <script language="JavaScript" src="${ctPath}/js/jquery-confirm.js"></script>
-    <script language="JavaScript" src="${ctPath}/js/base.js"></script>
+    <script language="JavaScript" src="${ctxStatic}/jquery/jquery-1.8.3.js"></script>
+    <script language="JavaScript" src="${ctxStatic}/common/jquery.base64.js"></script>
     <script src="${ctPath}/js/cloud.js" type="text/javascript"></script>
     <script language="javascript">
         $(function () {
@@ -39,22 +37,20 @@
                 if (userLogin.validate()) {
                     password = jQuery.base64.encode(password);
                     $.ajax({
-                        url: "${ctPath}/userController/userLogin.async",
+                        url: "${ctxF}/cus/cusUser/userLogin.async",
                         type: "POST",
                         dataType:"json",
                         data: {
-                            "account":account,
+                            "loginName":account,
                             "password":password
                         },
                         success: function (successData) {
                             if(successData.OPT_CODE == 100) {
-                                $cusConfirm.alert("用户名、密码错误！");
                             }else{
                                 document.location.href = "${ctPath}/indexController/goIndex.do"
                             }
                         },
                         error: function (errorData) {
-                            $cusConfirm.alert("登录异常！");
                         },
                     });
                 }

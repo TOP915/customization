@@ -35,7 +35,7 @@
 			<if test="id != null and id !=''">
 				AND  a.id = #{id}
 			</if>
-			<if test="userName != null and userName !=''">
+			<if test="loginName != null and loginName !=''">
 				AND a.login_name = #{loginName}
 			</if>
 			<if test="password != null and password !=''">

@@ -25,7 +25,7 @@ public class SessionFilter implements Filter {
             throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
-        String loginUrl = "/sessionOut.jsp";
+        String loginUrl = "/cususer/cusUserSessionOut.jspcusUserSessionOut.jsp";
         Object obSysUser = request.getSession().getAttribute(ConstantsWeb.SESSION_USER_INFO);
         if(obSysUser != null){
             chain.doFilter(request,response);
