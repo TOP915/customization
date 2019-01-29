@@ -60,51 +60,40 @@
     </script>
 
 </head>
-<body>
-<button id="customBtn" type="button">Google登录</button>
-<div id="name"></div>
-<button type="button" onclick="signOut();">Sign out</button>
 
-<script src="https://apis.google.com/js/api:client.js"></script>
-<script>
-    var googleUser = {};
-    var startApp = function() {
-        gapi.load('auth2', function(){
-            // Retrieve the singleton for the GoogleAuth library and set up the client.
-            auth2 = gapi.auth2.init({
-                client_id: '662426624378-p313vqiou5mhj80coqfkdacalmg5ddfk.apps.googleusercontent.com', //客户端ID
-                cookiepolicy: 'single_host_origin',
-                scope: 'profile' //可以请求除了默认的'profile' and 'email'之外的数据
-            });
-            attachSignin(document.getElementById('customBtn'));
-        });
-    };
+<body style="background-color:#1c77ac; background-image:url(images/light.png); background-repeat:no-repeat; background-position:center top; overflow:hidden;">
 
-    function attachSignin(element) {
-        auth2.attachClickHandler(element, {},
-            function(googleUser) {
-                document.getElementById('name').innerText = "Signed in: " + googleUser.getBasicProfile().getName();
-                var profile = auth2.currentUser.get().getBasicProfile();
-                console.log('ID: ' + profile.getId());
-                console.log('Full Name: ' + profile.getName());
-                console.log('Given Name: ' + profile.getGivenName());
-                console.log('Family Name: ' + profile.getFamilyName());
-                console.log('Image URL: ' + profile.getImageUrl());
-                console.log('Email: ' + profile.getEmail());
-            }, function(error) {
-                console.log(JSON.stringify(error, undefined, 2));
-            });
-    }
-    startApp();
 
-    //注销
-    function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
-            alert('用户注销成功');
-        });
-    }
-</script>
+<div id="mainBody">
+    <div id="cloud1" class="cloud"></div>
+    <div id="cloud2" class="cloud"></div>
+</div>
 
+
+<div class="logintop">
+    <span>欢迎登录后台管理界面平台</span>
+    <ul>
+        <li><a href="#">帮助</a></li>
+        <li><a href="#">关于</a></li>
+    </ul>
+</div>
+
+<div class="loginbody">
+
+    <span class="systemlogo"></span>
+    <form id="userLoginForm">
+        <div class="loginbox">
+            <ul>
+                <li><input name="account" id="account" type="text" class="loginuser" placeholder="用户名"
+                           onclick="JavaScript:this.value='';this.style.color='black'"/></li>
+                <li><input name="password" id="password" type="password" class="loginpwd" placeholder="密码"
+                           onclick="JavaScript:this.value='';this.style.color='black';this.type='password'"/></li>
+                <li><input type="button" class="loginbtn" value="登录"
+                           onclick="javascript:userLogin.login();"/></li>
+            </ul>
+        </div>
+    </form>
+</div>
+<div class="loginbm">让教学更生动，让学习更有效，让成长更全面</div>
 </body>
 </html>
