@@ -1056,12 +1056,14 @@ create table cus_user
   id                   varchar(64) not null comment '用户id',
   login_name           varchar(128) not null comment '登录账号',
   user_name            varchar(128) comment '用户姓名',
-  password             varchar(128) not null comment '用户密码',
+  password             varchar(128) comment '用户密码',
   user_email           varchar(64) comment '邮箱',
   user_phone           varchar(64) not null comment '电话',
   user_wechat          varchar(64) comment '用户微信',
   user_qq              varchar(64) comment '用户QQ',
   user_type            char(2) not null comment '用户类型 1:需求客户;2:写手客户;',
+  user_source          char(4) not null comment '用户来源 0 本系统 1 google 2 facebook',
+  user_sid             varchar(64) comment '用户源id',
   login_ip             varchar(64) comment '最后登陆IP',
   login_date           datetime comment '最后登陆时间',
   login_flag           char(1) comment '是否可登录1:可登录；2:不可登录',
@@ -1072,7 +1074,9 @@ create table cus_user
   del_flag             char(1) not null default '0' comment '删除标记',
   primary key (id)
 );
+
 alter table cus_user comment '用户信息表';
+
 
 /*==============================================================*/
 /* Table: cus_writer                                            */
