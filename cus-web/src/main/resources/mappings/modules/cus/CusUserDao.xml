@@ -14,7 +14,10 @@
 		a.user_type AS "userType",
 		a.login_ip AS "loginIp",
 		a.login_date AS "loginDate",
+		a.user_source AS "userSource",
 		a.login_flag AS "loginFlag",
+		a.user_sid AS "userSid",
+		a.user_image AS "userImage",
 		a.create_by AS "createBy.id",
 		a.create_date AS "createDate",
 		a.update_by AS "updateBy.id",
@@ -24,10 +27,10 @@
 	
 	<sql id="cusUserJoins">
 	</sql>
-    
+
 	<select id="get" resultType="CusUser">
-		SELECT 
-			<include refid="cusUserColumns"/>
+		SELECT
+		<include refid="cusUserColumns"/>
 		FROM cus_user a
 		<include refid="cusUserJoins"/>
 		<where>
@@ -41,12 +44,18 @@
 			<if test="password != null and password !=''">
 				AND a.password = #{password}
 			</if>
+			<if test="userSid != null and userSid !=''">
+				AND a.user_sid = #{userSid}
+			</if>
+			<if test="userSource != null and userSource !=''">
+				AND a.user_source = #{userSource}
+			</if>
 		</where>
 	</select>
-	
+
 	<select id="findList" resultType="CusUser">
-		SELECT 
-			<include refid="cusUserColumns"/>
+		SELECT
+		<include refid="cusUserColumns"/>
 		FROM cus_user a
 		<include refid="cusUserJoins"/>
 		<where>
@@ -99,7 +108,10 @@
 			user_type,
 			login_ip,
 			login_date,
+			user_source,
 			login_flag,
+			user_sid,
+			user_image,
 			create_by,
 			create_date,
 			update_by,
@@ -117,7 +129,10 @@
 			#{userType},
 			#{loginIp},
 			#{loginDate},
+			#{userSource},
 			#{loginFlag},
+			#{userSid},
+			#{userImage},
 			#{createBy.id},
 			#{createDate},
 			#{updateBy.id},
@@ -138,7 +153,10 @@
 			user_type = #{userType},
 			login_ip = #{loginIp},
 			login_date = #{loginDate},
+			user_source = #{userSource},
 			login_flag = #{loginFlag},
+			user_sid = #{userSid},
+			user_image = #{userImage},
 			update_by = #{updateBy.id},
 			update_date = #{updateDate}
 		WHERE id = #{id}

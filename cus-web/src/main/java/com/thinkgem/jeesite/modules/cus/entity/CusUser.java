@@ -12,14 +12,13 @@ import com.thinkgem.jeesite.common.persistence.DataEntity;
 /**
  * 用户模块Entity
  * @author dengyn
- * @version 2019-01-16
+ * @version 2019-02-18
  */
 public class CusUser extends DataEntity<CusUser> {
 	
 	private static final long serialVersionUID = 1L;
 	private String loginName;		// 登录账号
 	private String userName;		// 用户姓名
-
 	private String password;		// 用户密码
 	private String userEmail;		// 邮箱
 	private String userPhone;		// 电话
@@ -28,7 +27,10 @@ public class CusUser extends DataEntity<CusUser> {
 	private String userType;		// 用户类型 1:需求客户;2:写手客户;
 	private String loginIp;		// 最后登陆IP
 	private Date loginDate;		// 最后登陆时间
+	private String userSource;		// 用户来源 0 本系统 1 google 2 facebook
 	private String loginFlag;		// 是否可登录1:可登录；2:不可登录
+	private String userSid;		// 用户源id
+	private String userImage;		// 用户头像url
 	
 	public CusUser() {
 		super();
@@ -55,12 +57,16 @@ public class CusUser extends DataEntity<CusUser> {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	
+	@Length(min=0, max=128, message="用户密码长度必须介于 0 和 128 之间")
+	public String getPassword() {
+		return password;
+	}
 
-	@Length(min=1, max=128, message="用户密码长度必须介于 1 和 128 之间")
-	public String getPassword() { return password; }
-
-	public void setPassword(String password) { this.password = password; }
-
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 	@Length(min=0, max=64, message="邮箱长度必须介于 0 和 64 之间")
 	public String getUserEmail() {
 		return userEmail;
@@ -124,6 +130,15 @@ public class CusUser extends DataEntity<CusUser> {
 		this.loginDate = loginDate;
 	}
 	
+	@Length(min=1, max=4, message="用户来源 0 本系统 1 google 2 facebook长度必须介于 1 和 4 之间")
+	public String getUserSource() {
+		return userSource;
+	}
+
+	public void setUserSource(String userSource) {
+		this.userSource = userSource;
+	}
+	
 	@Length(min=0, max=1, message="是否可登录1:可登录；2:不可登录长度必须介于 0 和 1 之间")
 	public String getLoginFlag() {
 		return loginFlag;
@@ -131,6 +146,24 @@ public class CusUser extends DataEntity<CusUser> {
 
 	public void setLoginFlag(String loginFlag) {
 		this.loginFlag = loginFlag;
+	}
+	
+	@Length(min=0, max=64, message="用户源id长度必须介于 0 和 64 之间")
+	public String getUserSid() {
+		return userSid;
+	}
+
+	public void setUserSid(String userSid) {
+		this.userSid = userSid;
+	}
+	
+	@Length(min=0, max=128, message="用户头像url长度必须介于 0 和 128 之间")
+	public String getUserImage() {
+		return userImage;
+	}
+
+	public void setUserImage(String userImage) {
+		this.userImage = userImage;
 	}
 	
 }

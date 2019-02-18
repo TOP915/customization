@@ -1040,42 +1040,41 @@ create table cus_task_file
   task_id              varchar(64) not null comment '任务id',
   create_by            varchar(64) not null comment '创建人',
   create_date          datetime not null comment '创建时间',
-  update_by            varchar(64) not null comment '更新人',
-  update_date          datetime not null comment '更新时间',
+  update_by            varchar(64) comment '更新人',
+  update_date          datetime comment '更新时间',
   del_flag             char(1) not null default '0' comment '删除标记',
   primary key (id)
 );
 
 alter table cus_task_file comment '任务文件表';
 
-/*==============================================================*/
-/* Table: cus_user                                              */
-/*==============================================================*/
 create table cus_user
 (
   id                   varchar(64) not null comment '用户id',
   login_name           varchar(128) not null comment '登录账号',
   user_name            varchar(128) comment '用户姓名',
   password             varchar(128) comment '用户密码',
-  user_email           varchar(64) comment '邮箱',
-  user_phone           varchar(64) not null comment '电话',
+  user_email           varchar(64) not null comment '邮箱',
+  user_phone           varchar(64) comment '电话',
   user_wechat          varchar(64) comment '用户微信',
   user_qq              varchar(64) comment '用户QQ',
   user_type            char(2) not null comment '用户类型 1:需求客户;2:写手客户;',
   user_source          char(4) not null comment '用户来源 0 本系统 1 google 2 facebook',
   user_sid             varchar(64) comment '用户源id',
+  user_image           varchar(256) comment '用户头像url',
   login_ip             varchar(64) comment '最后登陆IP',
   login_date           datetime comment '最后登陆时间',
   login_flag           char(1) comment '是否可登录1:可登录；2:不可登录',
   create_by            varchar(64) not null comment '创建人',
   create_date          datetime not null comment '创建时间',
-  update_by            varchar(64) not null comment '更新人',
-  update_date          datetime not null comment '更新时间',
+  update_by            varchar(64) comment '更新人',
+  update_date          datetime comment '更新时间',
   del_flag             char(1) not null default '0' comment '删除标记',
   primary key (id)
 );
 
 alter table cus_user comment '用户信息表';
+
 
 
 /*==============================================================*/
@@ -1087,8 +1086,8 @@ create table cus_writer
   writer_record        varchar(64) not null comment '写手履历',
   user_id              varchar(64) not null comment '用户id',
   create_date          datetime not null comment '创建时间',
-  update_by            varchar(64) not null comment '更新人',
-  update_date          datetime not null comment '更新时间',
+  update_by            varchar(64) comment '更新人',
+  update_date          datetime comment '更新时间',
   del_flag             char(1) not null default '0' comment '删除标记',
   primary key (id)
 );

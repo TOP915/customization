@@ -74,7 +74,6 @@
         console.log('Welcome!  Fetching your information.... ');
         FB.api('/me', function(response) {
             console.log('Successful login for: ' + response.name);
-            console.log(response);
             document.getElementById('status').innerHTML =
                 'Thanks for logging in, ' + response.name + '!';
         });
@@ -93,5 +92,20 @@
 <div id="status">
 </div>
 
+<button id="logina" type="button">FaceBook登录</button>
+
+<script>
+    document.getElementById('logina').onclick = function(){//登录
+        FB.login(function(response) {
+            if (response.status === 'connected') {
+                FB.api('/me', function(response) {
+                    console.log('Successful login for: ' + response.name);
+                });
+            } else {
+                console.log('该用户没有登录');
+            }
+        }, {scope: 'public_profile,email'});
+    };
+    </script>
 </body>
 </html>

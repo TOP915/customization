@@ -16,7 +16,7 @@ import com.thinkgem.jeesite.modules.cus.dao.CusUserDao;
 /**
  * 用户模块Service
  * @author dengyn
- * @version 2019-01-16
+ * @version 2019-02-18
  */
 @Service
 @Transactional(readOnly = true)
@@ -25,11 +25,7 @@ public class CusUserService extends CrudService<CusUserDao, CusUser> {
 	public CusUser get(String id) {
 		return super.get(id);
 	}
-
-	public CusUser get(CusUser cusUser) {
-		return super.get(cusUser);
-	}
-
+	
 	public List<CusUser> findList(CusUser cusUser) {
 		return super.findList(cusUser);
 	}

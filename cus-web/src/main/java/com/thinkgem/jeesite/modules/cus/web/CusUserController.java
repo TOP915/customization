@@ -25,7 +25,7 @@ import com.thinkgem.jeesite.modules.cus.service.CusUserService;
 /**
  * 用户模块Controller
  * @author dengyn
- * @version 2019-01-16
+ * @version 2019-02-18
  */
 @Controller
 @RequestMapping(value = "${adminPath}/cus/cusUser")

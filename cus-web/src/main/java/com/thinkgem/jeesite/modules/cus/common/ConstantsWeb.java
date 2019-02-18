@@ -17,7 +17,7 @@ public class ConstantsWeb {
     public final static String PAGE_NUM = "PAGE_NUM";//当前页
     public final static String PAGE_SIZE = "PAGE_SIZE";//分页大小
 
-    public final static int SUCCESS = 0;  //成功
+    public final static int SUCCESS = 915;  //成功
     public final static int UNKNOWN_ERROR = 1;    //	未知错误
     public final static int SERVICE_TEMPORARILY_UNAVAILABLE = 2;    //	服务暂不可用
     public final static int UNSUPPORTED_OPENAPI_METHOD = 3;    //	未知的方法

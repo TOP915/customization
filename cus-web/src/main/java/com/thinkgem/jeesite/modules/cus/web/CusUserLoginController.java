@@ -12,6 +12,9 @@ import com.thinkgem.jeesite.modules.cus.entity.CusUser;
 import com.thinkgem.jeesite.modules.cus.service.CusUserService;
 import com.thinkgem.jeesite.modules.cus.utils.Base64Util;
 import com.thinkgem.jeesite.modules.cus.utils.MD5Util;
+import com.thinkgem.jeesite.modules.cus.utils.ResultUtil;
+import com.thinkgem.jeesite.modules.cus.utils.SessionUtil;
+import com.thinkgem.jeesite.modules.sys.entity.User;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +27,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -72,10 +76,10 @@ public class CusUserLoginController extends BaseController {
 	}
 
 	/**
+	 * @param loginName
 	 * @param password
-	 * @param account
 	 * @Title: userLogin
-	 * @Description: 查询用户详细信息
+	 * @Description: 本系统用户登录验证
 	 * @return: json
 	 */
 	@ResponseBody
@@ -96,11 +100,54 @@ public class CusUserLoginController extends BaseController {
 			cusUser = new CusUser();
 			cusUser.setLoginName(sysUserResult.getLoginName());
 			cusUser.setId(sysUserResult.getId());
-			request.getSession().setAttribute(ConstantsWeb.SESSION_USER_INFO, cusUser);
+			SessionUtil.setSession(request,ConstantsWeb.SESSION_USER_INFO,cusUser);
 		} else {
 			logger.info("userLogin is failed .");
 		}
-		resultMap.put(ConstantsWeb.OPT_CODE, optcode);
+		ResultUtil.resultMessage(resultMap,optcode,null);
+		return resultMap;
+	}
+
+	/**
+	 * @Title: userLogin
+	 * @Description: 第三方认证登录
+	 * @return: json
+	 */
+	@ResponseBody
+	@RequestMapping("/userOauth.async")
+	public Map<String, Object> userLogin(HttpServletRequest request,CusUser cusUser) {
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		String optinfo = "";
+		int optcode = -1;
+
+		try{
+			if(cusUser != null){
+				CusUser userQuery = new CusUser();
+				userQuery.setUserSid(cusUser.getUserSid());
+				userQuery.setUserSource(cusUser.getUserSource());
+
+				CusUser queryResult = cusUserService.get(userQuery);
+				if(queryResult != null){ //用户非初次认证登录本系统
+					cusUser.setId(queryResult.getId());
+					cusUser.setUpdateDate(new Date());
+				}else{
+					cusUser.setCreateBy(new User("1"));
+					cusUser.setCreateDate(new Date());
+				}
+				cusUserService.save(cusUser);
+				optinfo = "login success .";
+				optcode = ConstantsWeb.SUCCESS;
+			}else{
+				optinfo = "cusUser is null .";
+				optcode = ConstantsWeb.INVALID_PARAMETER;
+				logger.error(optinfo);
+			}
+		}catch (Exception e){
+			logger.error(e.getMessage(),e);
+			optinfo = "error occured ! error messeage ---> "+e.getMessage();
+			optcode = ConstantsWeb.UNKNOWN_ERROR;
+		}
+		resultMap = ResultUtil.resultMessage(resultMap,optcode,optinfo);
 		return resultMap;
 	}
 

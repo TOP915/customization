@@ -10,7 +10,7 @@ import com.thinkgem.jeesite.modules.cus.entity.CusUser;
 /**
  * 用户模块DAO接口
  * @author dengyn
- * @version 2019-01-16
+ * @version 2019-02-18
  */
 @MyBatisDao
 public interface CusUserDao extends CrudDao<CusUser> {

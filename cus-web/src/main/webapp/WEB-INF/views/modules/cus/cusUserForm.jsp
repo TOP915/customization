@@ -47,6 +47,12 @@
 			</div>
 		</div>
 		<div class="control-group">
+			<label class="control-label">用户密码：</label>
+			<div class="controls">
+				<form:input path="password" htmlEscape="false" maxlength="128" class="input-xlarge "/>
+			</div>
+		</div>
+		<div class="control-group">
 			<label class="control-label">邮箱：</label>
 			<div class="controls">
 				<form:input path="userEmail" htmlEscape="false" maxlength="64" class="input-xlarge "/>
@@ -93,9 +99,28 @@
 			</div>
 		</div>
 		<div class="control-group">
+			<label class="control-label">用户来源 0 本系统 1 google 2 facebook：</label>
+			<div class="controls">
+				<form:input path="userSource" htmlEscape="false" maxlength="4" class="input-xlarge required"/>
+				<span class="help-inline"><font color="red">*</font> </span>
+			</div>
+		</div>
+		<div class="control-group">
 			<label class="control-label">是否可登录1:可登录；2:不可登录：</label>
 			<div class="controls">
 				<form:input path="loginFlag" htmlEscape="false" maxlength="1" class="input-xlarge "/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">用户源id：</label>
+			<div class="controls">
+				<form:input path="userSid" htmlEscape="false" maxlength="64" class="input-xlarge "/>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">用户头像url：</label>
+			<div class="controls">
+				<form:input path="userImage" htmlEscape="false" maxlength="128" class="input-xlarge "/>
 			</div>
 		</div>
 		<div class="form-actions">
