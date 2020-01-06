@@ -7,6 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  * bean中文名注解
+ * test  20190102
  */
 @Target(ElementType.METHOD)  
 @Retention(RetentionPolicy.RUNTIME)  
